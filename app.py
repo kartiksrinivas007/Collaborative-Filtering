@@ -1,9 +1,7 @@
 from crypt import methods
 from flask import Flask,render_template,jsonify,request,redirect,url_for
-from flask_sqlalchemy import SQLAlchemy
 import numpy as np
 import model as cf
-from IPython.display import display
 
 
 app = Flask(__name__)
@@ -69,7 +67,7 @@ def show_ratings():
         rating=request.form["rating"]
         items_selected.append(items[int(movieID)])
         id_selected.append(int(movieID))
-        display(cf.final_ratings)
+        # display(cf.final_ratings)
         print(movieID)
         print(rating)
         print("items = ",items_selected)
@@ -101,7 +99,7 @@ def show_ratingspredictions():
     print(np.where(np.array(rating_list) > 0))
     print(len(rating_list))
     cf.addUser(rating_list)
-    display(cf.final_ratings)
+    # display(cf.final_ratings)
     cf.CF_engine(611,5,10)
     sorted_movies = cf.print_recommendations(611,10)
     sorted_movie_names = [i[0] for i in sorted_movies]
