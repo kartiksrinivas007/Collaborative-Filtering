@@ -1,13 +1,13 @@
-# Collaborative_Filetring
+# Collaborative Filetring
 This CF engine has 2 main algorithms, one of them , the KNN has been implemented as a Flask application and the second is just a jupyter notebook file
 
 ## KNN
 ### Installation and running-
 
-cd KNN_app/
-conda activate <virtualEnv>
-pip install -r requirements.txt
-python3 app.py
+cd KNN_app/ <br />
+conda activate virtualEnv<br />
+pip install -r requirements.txt<br />
+python3 app.py<br />
 
 Now open the devolopment server
   
