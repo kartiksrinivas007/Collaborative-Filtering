@@ -1,4 +1,4 @@
-# Collaborative Filetring
+# Collaborative Filtering
 This CF engine has 2 main algorithms, one of them , the KNN has been implemented as a Flask application and the second is just a jupyter notebook file
 
 ## KNN
