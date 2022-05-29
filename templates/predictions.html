@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Predictions
+{% endblock %}
+
+{% block body %}
+<br>
+    <h1>Finding Closest Movies</h1>
+    <hr style = "height:2px;border-width:0;color:white ;background-color: white; margin-left:2px;margin-right:65px">
+    <p>We need a measure of "distance" between movies !, how do we do this ? one way to go would be to first plot the movies in the feature space 
+        and then find the Euclidean distance between them. This is a very simple way to do it, but it is not the best way to do it. For example, if 
+        Ram and Shyam both watched Movie A and Movie B , and both of them rated Movie A twice as much as Movie B, then this means that Movie A and Movie B
+        actually are quite similar to each other , but Ram gave Movie A a rating of 2.5, while Shyam gave it 5 stars!. All this actually means is that Ram is a tough 
+        Rater, and Shyam is a very easy Rater. Euclidean distance cannot capture this information, since it looks at the absolute differences in ratings.
+        Therefore, we need to find a way to combine the ratings of the two users to find a measure of similarity between the two movies.
+    </p>
+    <h2> The Cosine Similarity</h2>
+    <hr style = "height:2px;border-width:0;color:white ;background-color: white; margin-left:2px;margin-right:65px">
+    If you would have noticed, the directions of the Movies A and B in the previous examples are actually the same! So the best way to see similarity, 
+    independent fo the "toughness" of a particular user, is to look at the <b>Angle</b>  between them! The smaller the angle between the two movies, the more similar they are.
+    Hey ! Wait a minute ! That sounds familiar ! smaller the angle , greater the value ?! Simlarity is behaving like a <b>Cosine Function!</b>
+    <br>
+    \[ CS(\vec{m_i},\vec{m_j}) = \frac {\vec{m_i} \cdot \vec{m_j}}{||m_i||\cdot ||m_j||} \]
+    \[ \text{Distance of movie i from movie j} = d_{ij} = 1 - CS(\vec{m_i},\vec{m_j}) \]
+    <div class = "d-flex align-items-center justify-content-center">
+        <form action = '/predictions', method="post">
+            <input type="text" name="movieID" placeholder="Enter the Movie ID">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <br>
+    <br>
+    {% if show_details == 1 %}
+    <h3> You have selected the movie {{movieselected}}</h3>
+    <div>
+        <table class = "table table-hover table-dark">
+          <thead>
+              <tr>
+                  
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col",style= "text-align:center">Distances from Selection</th>
+          </thead>
+          <tbody>
+              
+              {% for item in items %}
+                  <tr>
+                      <td>{{ id[loop.index -1] }}</td>
+                      <td>{{ item }}</td>
+                      <td>{{ distances[loop.index-1] }}</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      </div>
+      {% endif %}
+{% endblock %}

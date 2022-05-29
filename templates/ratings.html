@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+    
+    {% block title %}
+        Ratings
+    {% endblock %}
+    
+    {% block body %}
+    <br>
+    <h1>Predicting Ratings</h1>
+    <hr style = "height:2px;border-width:0;color:white ;background-color: white; margin-left:2px;margin-right:65px">
+    <p>Please enter your movie ID and its respective rating below !, The technique employed by my algorithm is as follows,
+        amongst all the closest neighbours, I take the weighted average of the ratings of the nearby movies(given by you) , and then predict the Ratings of all
+        of your unseen movies. After this I Sort all the movies according to their predicted ratings and display them in descending order.
+        \[ R_x^{pred} = \frac{\sum_{i =1}^{i = k} R_i S_i}{\sum_{i = 1}^{i=k} S_i} = \text{Weighted average of Ratings}\]
+        \[S_i = \text{Similarity of i'th movie to movie x}\]
+        \[S_i = CS(\vec{m_i}, \vec{m_x})\]
+    </p>
+    <br>
+    <div class = "d-flex align-items-center justify-content-center">
+    <form action = '/ratings', method="post">
+        <input type="text" name="movieID" placeholder="Enter the Movie ID">
+        <input type="text" name="rating" placeholder="Rating (1-5)">
+        <input type="submit" value="Submit">
+    </form>
+    </div> 
+    <br>
+    <div class = "d-flex align-items-center justify-content-center">
+    <button type="button" class="btn btn-secondary btn-lg"><a href = "{{ url_for('show_ratingspredictions') }}" style="color:white">Predict Ratings</a></button>
+    </div>
+    <br>
+    <div class = "d-flex align-items-center justify-content-center">
+        <button type="button" class="btn btn-secondary btn-lg"><a href = "{{ url_for('clear') }}" style="color:white">Clear Ratings</a></button>
+    </div>
+    <br>
+    <br>
+    
+    <div>
+        <table class = "table table-hover table-dark">
+          <thead>
+              <tr>
+                  
+                  <th scope="col">ID</th>
+                  <th scope="col" style = "text-align: center;">Movie Name</th>
+                  <th scope="col",style= "text-align:center">Rating Assigned by you</th>
+          </thead>
+          <tbody>  
+              {% for item in items %}
+                  <tr>
+                      <td>{{ id[loop.index -1] }}</td>
+                      <td>{{ item }}</td>
+                      <td>{{ rating_list[id[loop.index - 1]] }}</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      </div>
+    {% endblock %}

@@ -1,0 +1,24 @@
+db.create_all()
+movie_list = cf.final_ratings.index.tolist()
+print(type(movie_list[0]))
+
+
+#print(MovieDatabase.query.all())
+
+for i in range (len(movie_list)):
+    movie_database= MovieDatabase(movie_name=movie_list[i],movie_number=i)
+    db.session.add(movie_database)
+    if(i % 100 == 0):
+        print("on iteration number : " + str(i))
+db.session.commit()
+---------------------------------------
+movie_list = cf.final_ratings.index.tolist()
+print(type(movie_list[0]))
+
+
+for i in range (len(movie_list)):
+    movie_database= MovieDatabase(movie_name=movie_list[i],movie_number=i)
+    db.session.add(movie_database)
+    if(i % 100 == 0):
+        print("on iteration number : " + str(i))
+db.session.commit()
