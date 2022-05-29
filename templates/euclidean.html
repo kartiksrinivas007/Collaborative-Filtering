@@ -15,16 +15,16 @@ Predictions
         Rater, and Shyam is a very easy Rater. Euclidean distance cannot capture this information, since it looks at the absolute differences in ratings.
         Therefore, we need to find a way to combine the ratings of the two users to find a measure of similarity between the two movies.
     </p>
-    <h2> The Cosine Similarity</h2>
+    <h2> The Euclidean Similarity</h2>
     <hr style = "height:2px;border-width:0;color:white ;background-color: white; margin-left:2px;margin-right:65px">
-    If you would have noticed, the directions of the Movies A and B in the previous examples are actually the same! So the best way to see similarity, 
-    independent fo the "toughness" of a particular user, is to look at the <b>Angle</b>  between them! The smaller the angle between the two movies, the more similar they are.
-    Hey ! Wait a minute ! That sounds familiar ! smaller the angle , greater the value ?! Simlarity is behaving like a <b>Cosine Function!</b>
+    This page will give you the closest movies using the euclidean distance between the movies ! (We  will just find the distance between the <b>tips</b>  of these two vectors) 
+    Remember that these distances <b>will</b> capture the true similarity of movies, but do not capture the differences in ratings between tough
+    and easy raters. 
     <br>
-    \[ CS(\vec{m_i},\vec{m_j}) = \frac {\vec{m_i} \cdot \vec{m_j}}{||m_i||\cdot ||m_j||} \]
-    \[ \text{Distance of movie i from movie j} = d_{ij} = 1 - CS(\vec{m_i},\vec{m_j}) \]
+    \[ ES(\vec{m_i},\vec{m_j}) = \sqrt{\sum_{k=1}^{k=610}(r_{ik} - r_{jk})^2} = ||\vec{m_i}- \vec{m_j}|| \]
+    \[ \text{Distance of movie i from movie j} = d_{ij} = ES(\vec{m_i},\vec{m_x}) \]
     <div class = "d-flex align-items-center justify-content-center">
-        <form action = '/predictions', method="post">
+        <form action = '/euclidean', method="post">
             <input type="text" name="movieID" placeholder="Enter the Movie ID">
             <input type="submit" value="Submit">
         </form>

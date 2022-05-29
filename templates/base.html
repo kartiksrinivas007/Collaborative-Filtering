@@ -41,8 +41,14 @@
               <a class="nav-link" href="{{ url_for('show_predictions') }}">Cosine Similarites</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('show_ratings') }}">Ratings</a>
+            <a class="nav-link" href="{{ url_for('show_ratings') }}">Cosine Predictions</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('show_euclidean') }}">Euclidean Similarities</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('show_predict_euclidean') }}">Euclidean Predictions</a>
+    </li>
       </ul>
       <!-- <ul class="navbar-nav">
           <li class="nav-item">
