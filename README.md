@@ -4,10 +4,12 @@ This CF engine has 2 main algorithms, one of them , the KNN has been implemented
 ## KNN
 ### Installation and running-
 
-cd KNN_app/ <br />
-conda activate virtualEnv<br />
-pip install -r requirements.txt<br />
-python3 app.py<br />
+```console
+cd KNN_app
+conda activate virtualEnv
+pip install -r requirements.txt
+python3 app.py
+```
 
 Now open the devolopment server
   
