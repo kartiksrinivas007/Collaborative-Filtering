@@ -24,6 +24,8 @@ The KNN algorithm will find the closest neighbours and return them to you
  *Zeros are possible, since this represent movies that have barely been rated by anyone !*
   
  ## SVD
+ ---
+ 
 ## Installation and running-
   Navigate to SVD algorithms and open the notebook file
   To run simply install vscode support for JUpyter under extensions, or  just upload the file to google colab
