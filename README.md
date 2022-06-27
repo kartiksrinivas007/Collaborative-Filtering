@@ -31,8 +31,8 @@ The KNN algorithm will find the closest neighbours and return them to you
   To run simply install vscode support for Jupyter under extensions, or  just upload the file to google colab
   
 ### Successfull Implementation (`SVD_successful.ipynb`) 
-  I have created my own ratings matrix in SVD_succesfull and then used a MACHINE LEARNING model( built form scratch) to predict the ratings
-  of a particular movie this uses CONTENT-BASED FILTERING, and a Mean squared Error loss along with Matrix decomposition(Simple Decomposition, not SVD)
+  I have created my own ratings matrix in SVD_succesfull and then used a ML model( built form scratch) to predict the ratings
+  of a particular movie this uses Content-based filtering, and a Mean squared Error loss along with Matrix decomposition(Simple Decomposition, not SVD)
   to predict the ratings of every user and the sensitivity of a particular user to a particular genre (theta)
   
   
