@@ -5,8 +5,6 @@ This CF engine has been implemented as a `Flask` application
 ### Installation and running-
 
 ```console
-cd KNN_app
-conda activate virtualEnv
 pip install -r requirements.txt
 python3 app.py
 ```
