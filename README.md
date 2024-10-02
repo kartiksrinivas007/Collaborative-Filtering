@@ -34,11 +34,4 @@ The KNN algorithm will find the closest neighbours and return them to you
   I have created my own ratings matrix in SVD_succesfull and then used a ML model( built form scratch) to predict the ratings
   of a particular movie this uses Content-based filtering, and a Mean squared Error loss along with Matrix decomposition(Simple Decomposition, not SVD)
   to predict the ratings of every user and the sensitivity of a particular user to a particular genre (theta)
-  
-  
-### Failed Implementation(`SVD_failed.ipynb`)
-  I tried to run this on the Movie Lens Dataset But the loss grows too large ! and it takes too much time to train !
-  I didn't get enough to optimize the gradient descent!
-  the code is more or less correct however.
-  
  
